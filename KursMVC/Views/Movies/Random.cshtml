@@ -1,0 +1,16 @@
+﻿@model Vidly.VieweModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* Tak sie komentuje*@
+@{
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+}
+<h2 class="@className">@Model.Movie.Name</h2>
+<ul>
+    @foreach (var item in Model.Customers)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
