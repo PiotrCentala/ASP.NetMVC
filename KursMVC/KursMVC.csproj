@@ -195,9 +195,34 @@
     <Compile Include="Migrations\201905092022411_ApplyAnotations.Designer.cs">
       <DependentUpon>201905092022411_ApplyAnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905101825468_CreateNameInMembershipType.cs" />
+    <Compile Include="Migrations\201905101825468_CreateNameInMembershipType.Designer.cs">
+      <DependentUpon>201905101825468_CreateNameInMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905101828079_PopulateMembershipTypesName.cs" />
+    <Compile Include="Migrations\201905101828079_PopulateMembershipTypesName.Designer.cs">
+      <DependentUpon>201905101828079_PopulateMembershipTypesName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905101836383_PopulateRestMembershipTypesName.cs" />
+    <Compile Include="Migrations\201905101836383_PopulateRestMembershipTypesName.Designer.cs">
+      <DependentUpon>201905101836383_PopulateRestMembershipTypesName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905101922078_CreateBirthdayInCustomer.cs" />
+    <Compile Include="Migrations\201905101922078_CreateBirthdayInCustomer.Designer.cs">
+      <DependentUpon>201905101922078_CreateBirthdayInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905101959041_AddMovieAndGenre.cs" />
+    <Compile Include="Migrations\201905101959041_AddMovieAndGenre.Designer.cs">
+      <DependentUpon>201905101959041_AddMovieAndGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905102008479_PopulatGenre.cs" />
+    <Compile Include="Migrations\201905102008479_PopulatGenre.Designer.cs">
+      <DependentUpon>201905102008479_PopulatGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -299,6 +324,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905092022411_ApplyAnotations.resx">
       <DependentUpon>201905092022411_ApplyAnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101825468_CreateNameInMembershipType.resx">
+      <DependentUpon>201905101825468_CreateNameInMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101828079_PopulateMembershipTypesName.resx">
+      <DependentUpon>201905101828079_PopulateMembershipTypesName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101836383_PopulateRestMembershipTypesName.resx">
+      <DependentUpon>201905101836383_PopulateRestMembershipTypesName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101922078_CreateBirthdayInCustomer.resx">
+      <DependentUpon>201905101922078_CreateBirthdayInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101959041_AddMovieAndGenre.resx">
+      <DependentUpon>201905101959041_AddMovieAndGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905102008479_PopulatGenre.resx">
+      <DependentUpon>201905102008479_PopulatGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

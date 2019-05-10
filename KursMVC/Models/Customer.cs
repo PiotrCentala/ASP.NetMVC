@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -20,5 +21,7 @@ namespace Vidly.Models
         /// Z uwagi na nazewnictwo entity traktuje ta zmienna jako foreign key
         /// </summary>
         public byte MembershipTypeId { get; set; }
+        [Column(TypeName = "Date")]
+        public DateTime? Birthday { get; set; }
     }
 } 
