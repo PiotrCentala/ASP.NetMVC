@@ -1,0 +1,46 @@
+﻿@model KursMVC.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Model.Movie.Id == 0)
+{
+    <h2>Add Movie</h2>
+}
+@if (Model.Movie.Id != 0)
+{
+    <h2>Edit Movie</h2>
+}
+@using (Html.BeginForm("Save", "Movies"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Name)
+        @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.RealeseDate)
+        @Html.TextBoxFor(m => m.Movie.RealeseDate, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Genreid)
+        @Html.DropDownListFor(m => m.Movie.Genreid, new SelectList(Model.Genre, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.NumberInStock)
+        @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Movie.Id);
+    @Html.HiddenFor(m => m.Movie.DateAdded);
+    <button type="submit" , class="btn btn-primary">
+        Save
+    </button>
+}
+
