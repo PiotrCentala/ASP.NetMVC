@@ -1,36 +1,35 @@
-﻿using System;
+﻿using KursMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.VieweModels;
-
+using System.Data.Entity;
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        private ApplicationDbContext _context;
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Movies
-        public ActionResult Random()
+        public ActionResult Index()
         {
-            var movie = new Movie() { Name = "Shrek" };
-            var cutomers = new List<Customer>() {new Customer {Name="Piotr"},
-                new Customer {Name="Monika"},
-            };
-            var viewModel = new RandomMovieViewModel { Customers = cutomers, Movie = movie };
-            return View(viewModel);
+            var movies = _context.Movies.Include(g => g.Genre).ToList();
+            return View(movies);
         }
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Details (int id)
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-            return Content(String.Format("page insex={0} and sortby={1}", pageIndex, sortBy));
-        }
-        public ActionResult Edit (int id)
-        {
-            return Content("id=" + id);
+            var movie = _context.Movies.Include(g=>g.Genre).SingleOrDefault(m=>m.Id==id);
+            return View(movie);
         }
         [Route("movies/released/{year}/{month}")]
         public ActionResult ByReleaseDate(int year, int month)
