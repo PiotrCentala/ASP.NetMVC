@@ -16,6 +16,7 @@ namespace Vidly.Models
         [StringLength(255)]
         public string Name { get; set; }
         public bool IsSubscribedToNewstletter { get; set; }
+        [Display(Name = "Membership Type")]
         public MembershipType MembershipType { get; set; }
         /// <summary>
         /// Z uwagi na nazewnictwo entity traktuje ta zmienna jako foreign key

@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using KursMVC.ViewModels;
+using Vidly.Models;
+
 namespace KursMVC.Controllers
 {
     public class CustomerController : Controller
@@ -31,6 +34,19 @@ namespace KursMVC.Controllers
                 return HttpNotFound();
             return View(customer); 
 
+        }
+        public ActionResult New()
+        {
+            var vm = new NewCustomerViewModel();
+            vm.MembershipTypes = _context.MembershipTypes.ToList();
+            return View(vm);
+        }
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customer");
         }
     }
 }
