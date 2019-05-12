@@ -7,9 +7,9 @@ using Vidly.Models;
 
 namespace KursMVC.ViewModels
 {
-    public class MovieFormViewModel
+    public class CreateMovieFormViewModel
     {
         public Movie Movie;
-        public IEnumerable<Genre> Genre;
+        public IEnumerable<Genre> Genres;
     }
 }

@@ -35,13 +35,13 @@ namespace Vidly.Controllers
         }
         public ActionResult New()
         {
-            var movie = new MovieFormViewModel { Genre = _context.Genre.ToList() , Movie = new Movie {DateAdded = DateTime.Now } };
+            var movie = new CreateMovieFormViewModel { Genres = _context.Genre.ToList() , Movie = new Movie {DateAdded = DateTime.Now } };
 
             return View("MovieForm", movie);
         }
         public ActionResult Edit(int id)
         {
-            var movie = new MovieFormViewModel { Genre = _context.Genre.ToList(), Movie = _context.Movies.Single(c=>c.Id ==id) };
+            var movie = new CreateMovieFormViewModel { Genres = _context.Genre.ToList(), Movie = _context.Movies.Single(c=>c.Id ==id) };
             return View("MovieForm", movie);
         }
         [HttpPost]

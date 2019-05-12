@@ -37,13 +37,27 @@ namespace KursMVC.Controllers
         }
         public ActionResult New()
         {
-            var vm = new NewCustomerViewModel();
-            vm.MembershipTypes = _context.MembershipTypes.ToList();
+            var vm = new NewCustomerViewModel
+            {
+                MembershipTypes = _context.MembershipTypes.ToList(),
+                Customer = new Customer(),
+            };
             return View("CustomerForm", vm);
         }
         [HttpPost]
+        //Token zapobiegajacy atakowi z zewnatrz
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewCustomerViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList(),
+                };
+                return View("CustomerForm", viewModel);
+            }
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else

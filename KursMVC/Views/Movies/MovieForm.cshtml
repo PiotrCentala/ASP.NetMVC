@@ -1,4 +1,4 @@
-﻿@model KursMVC.ViewModels.MovieFormViewModel
+﻿@model KursMVC.ViewModels.CreateMovieFormViewModel
 @{
     ViewBag.Title = "MovieForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,13 +22,13 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.RealeseDate)
-        @Html.TextBoxFor(m => m.Movie.RealeseDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Movie.RealeseDate,"{0:d MMM yyyy}", new { @class = "form-control" })
     </div>
 
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.Genreid)
-        @Html.DropDownListFor(m => m.Movie.Genreid, new SelectList(Model.Genre, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.Movie.Genreid, new SelectList(Model.Genres,"Id","Name",Model.Movie.Genreid),"Select Genre",new { @class = "form-control" })
     </div>
 
 
